@@ -1,4 +1,5 @@
 import { PlusCircle } from '@phosphor-icons/react'
+import styles from './App.module.css'
 
 import { Button } from './components/Button'
 import { Header } from './components/Header'
@@ -11,8 +12,8 @@ export function App() {
     <main>
       <Header />
       
-      <section>
-        <div>
+      <section className={styles.content}>
+        <div className={styles.taskInfoContainer}>
           <Input />
           <Button>
             Criar
