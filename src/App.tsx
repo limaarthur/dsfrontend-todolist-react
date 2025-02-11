@@ -6,6 +6,7 @@ import { Header } from './components/Header'
 import { Input } from './components/Input'
 
 import './global.css'
+import { Empty } from './components/List/Empty'
 
 export function App() {
   return (
@@ -20,6 +21,8 @@ export function App() {
             <PlusCircle size={16} color="#f2f2f2" weight="bold" />
           </Button>
         </div>
+
+        <Empty />
       </section>
     </main>
   )
