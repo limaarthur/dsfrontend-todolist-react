@@ -5,8 +5,10 @@ import { Button } from './components/Button'
 import { Header } from './components/Header'
 import { Input } from './components/Input'
 
-import './global.css'
 import { Empty } from './components/List/Empty'
+import { HeaderListTasks } from './components/List/HeaderListTasks'
+
+import './global.css'
 
 export function App() {
   return (
@@ -20,6 +22,10 @@ export function App() {
             Criar
             <PlusCircle size={16} color="#f2f2f2" weight="bold" />
           </Button>
+        </div>
+
+        <div className={styles.tasksList}>
+          <HeaderListTasks />
         </div>
 
         <Empty />
