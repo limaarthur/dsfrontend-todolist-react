@@ -5,8 +5,9 @@ import { Button } from './components/Button'
 import { Header } from './components/Header'
 import { Input } from './components/Input'
 
-import { Empty } from './components/List/Empty'
 import { HeaderListTasks } from './components/List/HeaderListTasks'
+import { Task } from './components/List/Task'
+import { Empty } from './components/List/Empty'
 
 import './global.css'
 
@@ -26,9 +27,12 @@ export function App() {
 
         <div className={styles.tasksList}>
           <HeaderListTasks />
-        </div>
 
-        <Empty />
+          <div>
+            <Task />
+          </div>
+          <Empty />
+        </div>
       </section>
     </main>
   )
