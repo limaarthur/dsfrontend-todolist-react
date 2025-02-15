@@ -1,8 +1,13 @@
 import { Trash, Check } from '@phosphor-icons/react'
 
 import styles from './Task.module.css'
+import type { InterfaceTaskProps } from '../../../App'
 
-export function Task() {
+interface TaskProps {
+  data: InterfaceTaskProps
+}
+
+export function Task({ data }: TaskProps) {
  
   return (
     <div className={styles.container}>
@@ -14,7 +19,7 @@ export function Task() {
           </span>
 
           <p className={styles.paragraph}>
-            Atividade 1
+            {data.text}
           </p>
         </label>
       </div>
