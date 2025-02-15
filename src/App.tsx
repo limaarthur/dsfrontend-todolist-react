@@ -1,4 +1,5 @@
 import { PlusCircle } from '@phosphor-icons/react'
+import { useState } from 'react'
 import styles from './App.module.css'
 
 import { Button } from './components/Button'
@@ -11,7 +12,31 @@ import { Empty } from './components/List/Empty'
 
 import './global.css'
 
+export interface InterfaceTaskProps {
+  id: number
+  text: string 
+  isChecked: boolean
+}
+
 export function App() {
+  const [tasks, setTasks] = useState<InterfaceTaskProps[]>([])
+  const [inputValue, setInputValue] = useState('')
+
+  function handleAddTask() {
+    if (!inputValue) {
+      return
+    }
+
+    const newTask: InterfaceTaskProps = {
+      id: new Date().getTime(),
+      text: inputValue,
+      isChecked: false,
+    }
+    
+    setTasks((state) => [...state, newTask])
+    setInputValue('')
+  }
+
   return (
     <main>
       <Header />
@@ -29,7 +54,11 @@ export function App() {
           <HeaderListTasks />
 
           <div>
-            <Task />
+            {tasks.map((task) => (
+              <Task 
+                key={task.id}
+                data={task} />
+            ))}
           </div>
           <Empty />
         </div>
