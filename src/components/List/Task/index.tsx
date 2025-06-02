@@ -5,9 +5,14 @@ import type { InterfaceTaskProps } from '../../../App'
 
 interface TaskProps {
   data: InterfaceTaskProps
+  removeTask: (id: number) => void
 }
 
-export function Task({ data }: TaskProps) {
+export function Task({ data, removeTask }: TaskProps) {
+
+  function handleRemove() {
+    removeTask(data.id)
+  }
  
   return (
     <div className={styles.container}>
@@ -24,7 +29,9 @@ export function Task({ data }: TaskProps) {
         </label>
       </div>
 
-      <button>
+      <button
+        onClick={handleRemove}
+      >
         <Trash size={16} color="#808080" />
       </button>
     </div>
