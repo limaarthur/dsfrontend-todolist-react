@@ -66,16 +66,19 @@ export function App() {
         <div className={styles.tasksList}>
           <HeaderListTasks />
 
-          <div>
-            {tasks.map((task) => ( // Renderiza as tarefas existentes
-              <Task 
-                key={task.id}
-                data={task} 
-                removeTask={handleRemoveTask}
-              />
-            ))}
-          </div>
-          <Empty /> {/* Componente mostrado quando não há tarefas */}
+          {tasks.length > 0 ? (
+            <div>
+              {tasks.map((task) => ( // Renderiza as tarefas existentes
+                <Task 
+                  key={task.id}
+                  data={task} 
+                  removeTask={handleRemoveTask}
+                />
+              ))}
+            </div>
+          ) : (
+            <Empty /> // Componente mostrado quando não há tarefas
+          )}
         </div>
       </section>
     </main>
